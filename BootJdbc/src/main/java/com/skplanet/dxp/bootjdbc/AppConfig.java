@@ -38,6 +38,5 @@ public class AppConfig {
     DataSource dataSource() {
         setDataSource();
         return new Log4jdbcProxyDataSource(this.dataSource);
-//        return this.dataSource;
     }
 }
