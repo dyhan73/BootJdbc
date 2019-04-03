@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query("SELECT x FROM Customer x ORDER BY x.firstName, x.lastName")
-    List<Customer> findAll();
+    List<Customer> findAllOrderByName();
 }

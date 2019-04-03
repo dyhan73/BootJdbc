@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Customer {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer Id;
 
     @Column(nullable = false)
