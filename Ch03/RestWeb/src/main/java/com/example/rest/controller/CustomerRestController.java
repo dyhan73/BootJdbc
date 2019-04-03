@@ -3,15 +3,16 @@ package com.example.rest.controller;
 import com.example.rest.domain.Customer;
 import com.example.rest.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("api/customers")
@@ -20,8 +21,8 @@ public class CustomerRestController {
     CustomerService customerService;
 
     @RequestMapping(method = RequestMethod.GET)
-    List<Customer> getCustomers() {
-        return customerService.findAll();
+    Page<Customer> getCustomers(@PageableDefault Pageable pageable) {
+        return customerService.findAll(pageable);
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
