@@ -31,14 +31,13 @@ public class CustomerRestController {
 
     // add new customer
     @RequestMapping(method = RequestMethod.POST)
-//    @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity<Customer> postCustomers(@RequestBody Customer customer, UriComponentsBuilder uriBuilder) {
         Customer created = customerService.create(customer);
         URI location = uriBuilder.path("api/customers/{id}")
                 .buildAndExpand(created.getId()).toUri();
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(location);
-        return new ResponseEntity<Customer>(created, headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(created, headers, HttpStatus.CREATED);
     }
 
     // update customer information
