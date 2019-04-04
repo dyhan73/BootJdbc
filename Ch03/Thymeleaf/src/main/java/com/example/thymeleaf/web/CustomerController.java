@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import sun.misc.Request;
 
 import java.util.List;
 
@@ -66,6 +67,12 @@ public class CustomerController {
 
     @RequestMapping(value = "edit", params = "goToTop")
     String goToTop() {
+        return "redirect:/customers";
+    }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    String delete(@RequestParam Integer id) {
+        customerService.delete(id);
         return "redirect:/customers";
     }
 }
