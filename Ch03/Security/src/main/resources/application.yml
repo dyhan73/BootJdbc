@@ -10,3 +10,7 @@ spring:
 
   jpa:
     hibernate.dll-auto: validate
+
+  security:
+    basic:
+      enabled: false
