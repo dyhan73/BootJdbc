@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:file:/tmp/customer
+    username: sa
+    password:
+
+  thymeleaf:
+    cache: false
+
+  jpa:
+    hibernate.dll-auto: validate
