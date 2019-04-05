@@ -1,4 +1,4 @@
-package com.skplanet.dxp.HelloBoot;
+package com.example.HelloBoot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
